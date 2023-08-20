@@ -63,6 +63,34 @@ else{
 
 
 
+router.get('/category',async(req,res)=>{
+  try {
+ 
+    let all=await categoryModel.find({});
+    res.send({
+      statuscode:200,
+      data:all
+    }) 
+    
+  } catch (error) {
+    res.send({
+      statuscode:500,
+      message:"internal server error"
+    })
+    console.log(error)
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
 
 //get product by categoryid
 router.get('/Product/:categoryId',async(req,res)=>{
@@ -104,7 +132,7 @@ router.get('/Product/:ProductId',async(req,res)=>{
   }
 })
 
-
+//get orders by orderid
 router.get('/order/:orderId',async(req,res)=>{
   try {
 
